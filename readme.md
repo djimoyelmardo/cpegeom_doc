@@ -20,5 +20,5 @@ wsl --install
 ```
 - Voir les  lites des distributions disponibles
 ```bash
-wsl 
+wsl -
 ```
