@@ -1,0 +1,78 @@
+    1  sudo apt update
+    2  sudo apt upgrade -y
+    3  sudo apt install git
+    4  git --help
+    5  pwd
+    6  ls --la
+    7  ls
+    8  ls -la /mnt/
+    9  cd D:\git_work\cpgeom_doc
+   10  cd mnt\git_work\cpgeom_doc
+   11  cd /mnt/d/git_work/cpgeom_doc
+   12  ls -la
+   13  git init
+   14  ls -la
+   15  git status
+   16  git add *
+   17  git status
+   18  git commit -m "Premier commit"
+   19  sudo git commit -m "Premier commit"
+   20  git config --global user.email "djimoyelmardo@hotmail.com"
+   21  sudo git commit -m "Premier commit"
+   22  git status
+   23  git add readme.md 
+   24  git status
+   25  sudo git commit -m "Modif readme.md"
+   26  sudo git remote add origin https://github.com/djimoyelmardo/cpegeom_doc.git
+   27  git push -u origin main
+   28  git branch -M main
+   29  git status
+   30  git push -u origin main
+   31  git status
+   32  git add *
+   33  git status
+   34  git push -u origin main
+   35  git status
+   36  sudo git commit -m "Delete index.html"
+   37  git status
+   38  git push -u origin main
+   39  git status
+   40  git push -u origin main
+   41  git status
+   42  sudo git commit -m "Nouveau depot"
+   43  git add *
+   44  sudo git commit -m "Nouveau depot"
+   45  git status
+   46  git push -u origin main
+   47  python --version
+   48  python3 --version
+   49  sudo  apt install python3-venv
+   50  sudo  apt install python3-pip
+   51  sudo python3 -m venv .venv
+   52  ls -la
+   53  source .venv/bin/activate
+   54  pip install mkdocs
+   55  touch mkdocs.yml
+   56  mkdocs serve
+   57  mkdocs build
+   58  git commit -m "Site distant"
+   59  sudo git commit -m "Site distant"
+   60  git add * 
+   61  sudo git commit -m "Site distant"
+   62  git push -u origin main
+   63  mkdocs serve
+   64  git status
+   65  mkdocs gh-deploy
+   66  git add * 
+   67  sudo git commit -m "Build site in docs"
+   68  git push
+   69  history > /mnt/d/git_work/cpgeom_doc/histoire.txt
+   70  git add *
+   71  sudo git commit -m "Ajout chien"
+   72  git push
+   73  mkdocs gh_deploy
+   74  mkdocs gh-deploy
+   75  git config --global credential.helper store
+   76  git push
+   77  mkdocs gh-deploy
+   78  history > /mnt/d/git_work/cpgeom_doc/histoire1.txt
