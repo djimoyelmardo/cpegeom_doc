@@ -7,7 +7,7 @@ Cela constitue un atout majeur pour disposer de données exploitables en géomat
   background-image: url('images/fond_bassin.jpg');
   background-size: cover;
   background-position: center;
-  padding: 60px 20px;
+  padding: 0px 20px;
   text-align: center;
   color: black;
 ">
@@ -49,7 +49,7 @@ Cela constitue un atout majeur pour disposer de données exploitables en géomat
     </p>
   </div>
 
-    <!-- I-SEA -->
+  <!-- I-SEA -->
   <div style="background:white;color:#003366;width:260px;padding:25px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
     <img src="images/logo_isea.jpg" style="height:60px; margin-bottom:15px;">
     <p><strong>I-SEA</strong><br>
