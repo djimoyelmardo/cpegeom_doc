@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
     <title>Les différentes sources de données utilisées au PNMBA - Site de documentation CPGEOM</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
@@ -18,7 +18,7 @@
       </script>
     
     <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
+      <script src="js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script> 
@@ -30,9 +30,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Site de documentation CPGEOM
+          <a href="index.html" class="icon icon-home"> Site de documentation CPGEOM
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -40,11 +40,11 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Accueil de mon site de documentation</a>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Accueil de mon site de documentation</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../geoplateforme/">La République des cartes</a>
+                <li class="toctree-l1"><a class="reference internal" href="geoplateforme.html">La République des cartes</a>
                 </li>
               </ul>
               <ul class="current">
@@ -60,13 +60,13 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Site de documentation CPGEOM</a>
+          <a href="index.html">Site de documentation CPGEOM</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
       <li class="breadcrumb-item active">Les différentes sources de données utilisées au PNMBA</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -77,12 +77,11 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="les-differentes-sources-de-donnees-utilisees-au-pnmba">Les différentes sources de données utilisées au PNMBA</h1>
-<p>Le PNMBA est en partenaire avec plusieurs entrepprises, entreprise et acteurs locaux dans le cadre de la réalisation de ses missions de sauvegarde de la biodiversité. Cela est un grand atout pour avoir les données et ressources nécessaires exploitables en géomatiques. 
-Ces sources sont : </p>
-<!-- ================= SECTION SOURCES ================= -->
-
+<p>Le PNMBA est en partenaire avec plusieurs entreprises et acteurs locaux dans le cadre de la réalisation de ses missions de sauvegarde de la biodiversité.<br />
+Cela constitue un atout majeur pour disposer de données exploitables en géomatique.</p>
+<hr />
 <section style="
-  background-image: url('images/fond_bassin.jpg');
+  background-image: url('{{ config.site_url }}images/fond_bassin.jpg');
   background-size: cover;
   background-position: center;
   padding: 60px 20px;
@@ -99,7 +98,7 @@ Ces sources sont : </p>
   gap: 30px;
 ">
 
-  <!-- CARD -->
+  <!-- SIBA -->
   <div style="
     background: white;
     color: #003366;
@@ -108,70 +107,51 @@ Ces sources sont : </p>
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   ">
-    <img src="images/logo_siba.png" style="height:60px; margin-bottom:15px;">
+    <img src="{{ config.site_url }}images/logo_siba.png" style="height:60px; margin-bottom:15px;">
     <p><strong>SIBA</strong><br>
-    Référentiel des infrastructures et données géographiques du Bassin d'où provient les coordonnées des toponymes.
+    Référentiel des infrastructures et données géographiques du Bassin d'où proviennent les coordonnées des toponymes.
     </p>
   </div>
 
+  <!-- BRGM -->
   <div style="background:white;color:#003366;width:260px;padding:25px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
-    <img src="images/logo_brgm.png" style="height:60px; margin-bottom:15px;">
+    <img src="{{ config.site_url }}images/logo_brgm.png" style="height:60px; margin-bottom:15px;">
     <p><strong>BRGM</strong><br>
     Données géologiques, hydrogéologiques et altimétriques.
     </p>
   </div>
 
+  <!-- IGN -->
   <div style="background:white;color:#003366;width:260px;padding:25px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
-    <img src="images/logo_ign.png" style="height:60px; margin-bottom:15px;">
+    <img src="{{ config.site_url }}images/logo_ign.png" style="height:60px; margin-bottom:15px;">
     <p><strong>IGN</strong><br>
     Cartes topographiques et orthophotographies.
     </p>
   </div>
 
+  <!-- SHOM -->
   <div style="background:white;color:#003366;width:260px;padding:25px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
-    <img src="images/logo_shom.png" style="height:60px; margin-bottom:15px;">
+    <img src="{{ config.site_url }}images/logo_shom.png" style="height:60px; margin-bottom:15px;">
     <p><strong>SHOM</strong><br>
     Données maritimes et bathymétriques.
     </p>
   </div>
 
+  <!-- IFREMER -->
   <div style="background:white;color:#003366;width:260px;padding:25px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
-    <img src="images/logo_ifremer.png" style="height:60px; margin-bottom:15px;">
+    <img src="{{ config.site_url }}images/logo_ifremer.png" style="height:60px; margin-bottom:15px;">
     <p><strong>IFREMER</strong><br>
-    Études sur les milieux marins.
+    Études sur les milieux marins et l’ostréiculture.
     </p>
   </div>
 
 </div>
 </section>
-
-<p></div>
-</section></p>
-<p><img alt="" src="../images/logo_siba.png" />
-<img alt="" src="../images/chien.jpg" />
-([https://www.ign.fr/])</p>
-<div style="display:flex; gap:30px; flex-wrap:wrap;">
-
-  <div style="background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-    <img src="images/logo_siba.png" alt="SIBA" style="width:120px; margin-bottom:10px;">
-    <p><strong>SIBA</strong><br>
-    Référentiel des infrastructures et données géographiques.
-    </p>
-  </div>
-
-  <div style="background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-    <img src="images/logo_brgm.png" alt="BRGM" style="width:120px; margin-bottom:10px;">
-    <p><strong>BRGM</strong><br>
-    Données géologiques et hydrogéologiques.
-    </p>
-  </div>
-
-</div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../geoplateforme/" class="btn btn-neutral float-left" title="La République des cartes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="geoplateforme.html" class="btn btn-neutral float-left" title="La République des cartes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -194,16 +174,16 @@ Ces sources sont : </p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../geoplateforme/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="geoplateforme.html" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
   </span>
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
