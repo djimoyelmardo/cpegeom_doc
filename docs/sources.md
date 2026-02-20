@@ -75,16 +75,18 @@ Ces sources sont :
 ([https://www.ign.fr/])
 <div style="display:flex; gap:30px; flex-wrap:wrap;">
 
-<div style="background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-![](images/logo_siba.png)
-**SIBA**  
-Référentiel des infrastructures et données géographiques.
-</div>
+  <div style="background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+    <img src="images/logo_siba.png" alt="SIBA" style="width:120px; margin-bottom:10px;">
+    <p><strong>SIBA</strong><br>
+    Référentiel des infrastructures et données géographiques.
+    </p>
+  </div>
 
-<div style="background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-![](images/logo_brgm.png)
-**BRGM**  
-Données géologiques et hydrogéologiques.
-</div>
+  <div style="background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+    <img src="images/logo_brgm.png" alt="BRGM" style="width:120px; margin-bottom:10px;">
+    <p><strong>BRGM</strong><br>
+    Données géologiques et hydrogéologiques.
+    </p>
+  </div>
 
 </div>
