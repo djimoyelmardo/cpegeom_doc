@@ -1,6 +1,7 @@
-# Les différentes sources de données utilisées au PNMBA
+# Sources
+## Les différentes sources de données utilisées au PNMBA
 
-Le PNMBA est en partenaire avec plusieurs entreprises et acteurs locaux dans le cadre de la réalisation de ses missions de sauvegarde de la biodiversité.  
+Le PNMBA est en partenaire avec plusieurs entreprises, établissements publics, associateurs et acteurs locaux dans le cadre de la réalisation de ses missions de sauvegarde de la biodiversité.  
 Cela constitue un atout majeur pour disposer de données exploitables en géomatique.
 
 <section style="
