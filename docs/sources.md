@@ -4,7 +4,7 @@ Ces sources sont :
 <!-- ================= SECTION SOURCES ================= -->
 
 <section style="
-  background-image: url('./images/fond_bassin.jpg');
+  background-image: url('images/fond_bassin.jpg');
   background-size: cover;
   background-position: center;
   padding: 60px 20px;
@@ -30,28 +30,28 @@ Ces sources sont :
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   ">
-    <img src="./images/logo_siba.png" style="height:60px; margin-bottom:15px;">
+    <img src="images/logo_siba.png" style="height:60px; margin-bottom:15px;">
     <p><strong>SIBA</strong><br>
     Référentiel des infrastructures et données géographiques du Bassin d'où provient les coordonnées des toponymes.
     </p>
   </div>
 
   <div style="background:white;color:#003366;width:260px;padding:25px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
-    <img src="./images/logo_brgm.png" style="height:60px; margin-bottom:15px;">
+    <img src="images/logo_brgm.png" style="height:60px; margin-bottom:15px;">
     <p><strong>BRGM</strong><br>
     Données géologiques, hydrogéologiques et altimétriques.
     </p>
   </div>
 
   <div style="background:white;color:#003366;width:260px;padding:25px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
-    <img src="./images/logo_ign.png" style="height:60px; margin-bottom:15px;">
+    <img src="images/logo_ign.png" style="height:60px; margin-bottom:15px;">
     <p><strong>IGN</strong><br>
     Cartes topographiques et orthophotographies.
     </p>
   </div>
 
   <div style="background:white;color:#003366;width:260px;padding:25px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
-    <img src="./images/logo_shom.png" style="height:60px; margin-bottom:15px;">
+    <img src="images/logo_shom.png" style="height:60px; margin-bottom:15px;">
     <p><strong>SHOM</strong><br>
     Données maritimes et bathymétriques.
     </p>
@@ -70,6 +70,21 @@ Ces sources sont :
 </div>
 </section>
 
-![](images/logo_siba.png)
+![](./images/logo_siba.png)
 ![](./images/chien.jpg)
 ([https://www.ign.fr/])
+<div style="display:flex; gap:30px; flex-wrap:wrap;">
+
+<div style="background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+![](images/logo_siba.png)
+**SIBA**  
+Référentiel des infrastructures et données géographiques.
+</div>
+
+<div style="background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+![](images/logo_brgm.png)
+**BRGM**  
+Données géologiques et hydrogéologiques.
+</div>
+
+</div>
