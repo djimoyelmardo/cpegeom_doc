@@ -1,4 +1,4 @@
-# Accueil de mon site de documentation
+# Accueil de mon site
 
 ## Géoplateforme
 ## Les sources
