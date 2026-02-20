@@ -126,9 +126,10 @@ La notion de diffusion de donnée a été confirmée par la possibilité de part
     <li>Des données réutilisables => accessibles, ouvertes</li>
 </ul>
 
- ## Extract Transform Load ETL
+## Extract Transform Load ETL
  Un outils fiable => le traitement automatisé. 
 ![](./images/etl.png)
+
  **Extact**: le processus d'extraction doit convertir les données dans un format adapté à une transformation ultérieure
 
 **Transform** : Nettoyage, Filtrage, Enrichissement, Division, (spliting), Regroupement.

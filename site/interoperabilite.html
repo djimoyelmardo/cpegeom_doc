@@ -82,6 +82,16 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#le-cataloge-et-les-metadonnees">Le cataloge et les métadonnées</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#extract-transform-load-etl">Extract Transform Load ETL</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#spatial-etl">Spatial ETL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transformations-geospatiales-communes">Transformations géospatiales communes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#les-formats-de-donnees">Les formats de données</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -231,6 +241,35 @@ Trouvable, Accessible, Interopérable et Réutilisable
     <li>Des données diffusables => catalogue de données / métadonnées, Catalogue Service Web CSW</li>
     <li>Des données réutilisables => accessibles, ouvertes</li>
 </ul>
+
+<h2 id="extract-transform-load-etl">Extract Transform Load ETL</h2>
+<p>Un outils fiable =&gt; le traitement automatisé. 
+<img alt="" src="images/etl.png" /></p>
+<p><strong>Extact</strong>: le processus d'extraction doit convertir les données dans un format adapté à une transformation ultérieure</p>
+<p><strong>Transform</strong> : Nettoyage, Filtrage, Enrichissement, Division, (spliting), Regroupement.</p>
+<p><strong>Load</strong> : Les données transformées peuvent être chargé dans la base cible.</p>
+<h3 id="spatial-etl">Spatial ETL</h3>
+<p>L’ETL Spatial, aussi connu sous l’appellation GTL (« Geographic Transformation and Load »), propose les mêmes fonctionnalités que l’ETL, appliquées à la manipulation des données géographiques.
+<img alt="" src="images/spatial_etl.png" />
+L’ETL spatial permet :</p>
+<ul>
+    <li>De synchroniser des bases entre-elles,</li>
+    <li>De traduire des jeux de données géographiques d’un format vers un autre (OGR / GDAL),</li>
+    <li>De restructurer complètement le modèle de données et l’adapter au modèle cible, à l’aide d’unités de traitement (transformers chez FME) qui modifient la structure, les attributs et la géométrie des entités.</li>
+</ul>
+
+<h3 id="transformations-geospatiales-communes">Transformations géospatiales communes</h3>
+<ul>
+    <li>Reprojection : possibilité de convertir des données spatiales entre un système de coordonnées et un autre</li>
+    <li>Transformations spatiales : possibilité de modéliser des interactions spatiales et de calculer des prédicats spatiaux.</li>
+    <li>Transformations topologiques : possibilité de créer des relations topologiques entre des ensembles de données disparates.</li>
+    <li>Re-symbolisation : la possibilité de modifier les caractéristiques cartographiques d'une entité, comme la couleur ou le style de trait.</li>
+    <li>Géocodage : possibilité de convertir des attributs de données tabulaires en données spatiales.</li>
+</ul>
+<p><img alt="" src="images/etl_traitement_ndvi.png" /></p>
+<h3 id="les-formats-de-donnees">Les formats de données</h3>
+<p>Georezo a listé tous les formats utilisés : https://georezo.net/wiki/main/donnees/extensions.</p>
+<p>Cette liste n'est pas forcement exhaustive et beaucoup de formats ne sont pas ou peu utilisés dans la pratique (logiciels obsolètes, formats non utilisés en France)</p>
               
             </div>
           </div><footer>
