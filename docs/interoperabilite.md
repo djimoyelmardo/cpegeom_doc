@@ -20,9 +20,6 @@ L'interopérabilité en géomatique se concentre sur la capacité des données s
 
 ## Des normes
 <div style="display: flex; align-items: center; gap: 50px; margin: 40px 0;">
-
-  <img src="./images/iso.png" 
-       style="width:350px; border-radius:10px;">
   <div>
     <p>
       ISO / TC 211
@@ -41,9 +38,11 @@ L'interopérabilité en géomatique se concentre sur la capacité des données s
   </div>
 </div>
 
-[Lien normalisation en SIG :](https://www.iso.org/fr/committee/54904/x/catalogue/)
+[Lien normalisation en SIG](https://www.iso.org/fr/committee/54904/x/catalogue/)
+
 Ces normes peuvent spécifier, pour l'information géographique, des méthodes, outils et services pour la gestion de données (y compris leur définition et leur description), l’acquisition, le traitement, l'analyse, l'accès, la présentation et le transfert de ces données sous forme numérique / électronique entre les différents utilisateurs, systèmes et sites.
-La directive INSPIRE : https://inspire-geoportal.ec.europa.eu/srv/fre/catalog.search#/home 
+
+[La directive INSPIRE](https://inspire-geoportal.ec.europa.eu/srv/fre/catalog.search#/home)
 
 ## Open Geospatial Consortium (OGC)
 Organisation internationale à but non lucratif dédiée au développement des systèmes ouverts en géomatique fondé en 994 pour répondre aux problèmes de non interopérabilité des applications concernant l'information géographique 
