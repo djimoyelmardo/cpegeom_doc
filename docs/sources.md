@@ -70,9 +70,6 @@ Ces sources sont :
 </div>
 </section>
 
-![](./images/logo_siba.png)
-![](./images/chien.jpg)
-([https://www.ign.fr/])
 <div style="display:flex; gap:30px; flex-wrap:wrap;">
 
   <div style="background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
@@ -83,7 +80,7 @@ Ces sources sont :
   </div>
 
   <div style="background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-    <img src="images/logo_brgm.png" alt="BRGM" style="width:120px; margin-bottom:10px;">
+   <img src="{{ base_url }}/images/logo_siba.png" width="120">
     <p><strong>BRGM</strong><br>
     Données géologiques et hydrogéologiques.
     </p>
