@@ -54,7 +54,8 @@ Organisation internationale à but non lucratif dédiée au développement des s
     <li>permettre de réaliser des systèmes et des services d'information complexes et ouverts,</li>
     <li>impliquer l’ensemble de la communauté dans le processus d’interopérabilité,</li>
 </ul>
-Lien : https://www.ogc.org/
+
+[Lien ](https://www.ogc.org/)
 
 ### Des ressources
 <ul>
@@ -134,11 +135,8 @@ La notion de diffusion de donnée a été confirmée par la possibilité de part
 ## Extract Transform Load ETL
  Un outils fiable => le traitement automatisé. 
 ![](./images/etl.png)
-
- **Extact**: le processus d'extraction doit convertir les données dans un format adapté à une transformation ultérieure
-
+**Extact**: le processus d'extraction doit convertir les données dans un format adapté à une transformation ultérieure
 **Transform** : Nettoyage, Filtrage, Enrichissement, Division, (spliting), Regroupement.
-
 **Load** : Les données transformées peuvent être chargé dans la base cible.
 
 ### Spatial ETL
@@ -162,6 +160,5 @@ L’ETL spatial permet :
 ![](./images/etl_traitement_ndvi.png)
 
 ### Les formats de données
-Georezo a listé tous les formats utilisés : https://georezo.net/wiki/main/donnees/extensions.
-
 Cette liste n'est pas forcement exhaustive et beaucoup de formats ne sont pas ou peu utilisés dans la pratique (logiciels obsolètes, formats non utilisés en France)
+[Georezo a listé tous les formats utilisés](https://georezo.net/wiki/main/donnees/extensions)
