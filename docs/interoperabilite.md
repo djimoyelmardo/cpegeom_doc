@@ -125,3 +125,37 @@ La notion de diffusion de donnée a été confirmée par la possibilité de part
     <li>Des données diffusables => catalogue de données / métadonnées, Catalogue Service Web CSW</li>
     <li>Des données réutilisables => accessibles, ouvertes</li>
 </ul>
+
+ ## Extract Transform Load ETL
+ Un outils fiable => le traitement automatisé. 
+![](./images/etl.png)
+ **Extact**: le processus d'extraction doit convertir les données dans un format adapté à une transformation ultérieure
+
+**Transform** : Nettoyage, Filtrage, Enrichissement, Division, (spliting), Regroupement.
+
+**Load** : Les données transformées peuvent être chargé dans la base cible.
+
+### Spatial ETL
+L’ETL Spatial, aussi connu sous l’appellation GTL (« Geographic Transformation and Load »), propose les mêmes fonctionnalités que l’ETL, appliquées à la manipulation des données géographiques.
+![](./images/spatial_etl.png)
+L’ETL spatial permet :
+<ul>
+    <li>De synchroniser des bases entre-elles,</li>
+    <li>De traduire des jeux de données géographiques d’un format vers un autre (OGR / GDAL),</li>
+    <li>De restructurer complètement le modèle de données et l’adapter au modèle cible, à l’aide d’unités de traitement (transformers chez FME) qui modifient la structure, les attributs et la géométrie des entités.</li>
+</ul>
+
+### Transformations géospatiales communes
+<ul>
+    <li>Reprojection : possibilité de convertir des données spatiales entre un système de coordonnées et un autre</li>
+    <li>Transformations spatiales : possibilité de modéliser des interactions spatiales et de calculer des prédicats spatiaux.</li>
+    <li>Transformations topologiques : possibilité de créer des relations topologiques entre des ensembles de données disparates.</li>
+    <li>Re-symbolisation : la possibilité de modifier les caractéristiques cartographiques d'une entité, comme la couleur ou le style de trait.</li>
+    <li>Géocodage : possibilité de convertir des attributs de données tabulaires en données spatiales.</li>
+</ul>
+![](./images/etl_traitement_ndvi.png)
+
+### Les formats de données
+Georezo a listé tous les formats utilisés : https://georezo.net/wiki/main/donnees/extensions.
+
+Cette liste n'est pas forcement exhaustive et beaucoup de formats ne sont pas ou peu utilisés dans la pratique (logiciels obsolètes, formats non utilisés en France)

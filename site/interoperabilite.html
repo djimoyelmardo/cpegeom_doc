@@ -80,6 +80,8 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#le-cataloge-et-les-metadonnees">Le cataloge et les métadonnées</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -178,9 +180,35 @@ Trouvable, Accessible, Interopérable et Réutilisable
 <h2 id="les-standards-de-logc">Les standards de l’OGC</h2>
 <h3 id="des-webservices-distant">Des Webservices (distant)</h3>
 <ul>
-    <li>WMS - Web Map ServiceProposition</li>
-    <li>WMTS - Web Map Tile Service</li>
-    <li>WFS - Web Feature Service</li>
+    <li>WMS - Web Map ServiceProposition: À l'ouverure dans un éditeur, un WMS s'affiche au format xml. Il renvoie une seule image sur l'étendue demandée et s'affiche plus lentement
+    https://data.geopf.fr/wms-r/wms?
+    VERSION=1.3.0&
+    SERVICE=WMS&
+    REQUEST=GetCapabilities
+    </li>
+    <li>WMTS - Web Map Tile Service  :  Renvoie la tuile sur l'étendue de l'image demandée et s'affcihe plus vite
+    https://data.geopf.fr/wmts?
+    SERVICE=WMTS&
+    REQUEST=GetTile&
+    VERSION=1.0.0&
+    LAYER=HR.ORTHOIMAGERY.ORTHOPHOTOS&
+    STYLE=normal&
+    FORMAT=image%2Fjpeg&
+    TILEMATRIXSET=PM_6_19&
+    TILEMATRIX=14&
+    TILEROW=5638&
+    TILECOL=8296
+    </li>
+    <li>WFS - Web Feature Service : la strucure du lien WFS
+    https://data.geopf.fr/wfs/wfs?
+    SERVICE=WFS&
+    REQUEST=GetFeature&
+    VERSION=2.0.0&TYPENAMES=OCS-GERS_BDD_LAMB93_2019:oscge_gers_32_2019&STARTINDEX=40000&COUNT=5000&SRSNAME=urn:ogc:def:crs:EPSG::2154&
+    BBOX=-118375001.75732161104679108,-127711935.79784440994262695,119759640.55220197141170502,111272176.1037464439868927,urn:ogc:def:crs:EPSG::2154
+    </li>
+    <li>TMS - Tile Map Service : 
+    https://tile.openstreetmap.org/15/16592/11269.png
+    </li>
     <li>WCS - Web Coverage Service</li>
     <li>CS-W - Catalog Service Web</li>
     <li>WPS - Web Processing Service</li>
@@ -193,6 +221,15 @@ Trouvable, Accessible, Interopérable et Réutilisable
     <li>KML - Keyhole Markup Language</li>
     <li>GPKG - Geopackage</li>
     <li>WKT CRS – Notation des CRS WKT</li>
+</ul>
+
+<h2 id="le-cataloge-et-les-metadonnees">Le cataloge et les métadonnées</h2>
+<p>La notion de diffusion de donnée a été confirmée par la possibilité de partager des données de qualité.</p>
+<ul>
+    <li>Des données de qualité => exhaustives, propres et géométriquement correctes</li>
+    <li>Des données documentées => fiches de métadonnées suivant des normes de rédaction (ISO 19115 / 19139, INSPIRE, DCAT)</li>
+    <li>Des données diffusables => catalogue de données / métadonnées, Catalogue Service Web CSW</li>
+    <li>Des données réutilisables => accessibles, ouvertes</li>
 </ul>
               
             </div>
