@@ -3,22 +3,33 @@ Une initiative collective pour révéler le pouvoir des cartes comme levier dém
 
 ## Et si nous avions oublié le pouvoir des cartes ?
 La carte n'est pas qu'un outil : c'est une invitation à voir le monde autrement, à agir collectivement et à imaginer des futurs communs. Telle est la vision portée par la République des Cartes, un projet collectif inédit qui invite chacun à s'emparer du pouvoir des cartes pour regarder le monde autrement, faire débat et contribuer à décider du devenir de nos territoire. 
-![](./images/carte.png) 
-# Cinq leviers d’actions pour donner leur place aux cartes
-À travers des publications régulières, un podcast et une grande journée annuelle, la République des cartes entend rendre visible le rôle essentiel de la cartographie pour comprendre, décider et agir ensemble.
-- une journée nationale de la carte
-- une bannière commune pour rassembler
-- un atelier et une expo clés en main pour faire vivre l’initiative partout
-- une série du podcast Sismique pour faire entendre les voix de la cartographie
-- des publications pour nourrir le débat.
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0;">
-  <iframe src="https://www.youtube.com/embed/IFyU-BCtL5k"
-  style="position: absolute; top:0; left:0; width:100%; height:100%;"
-  frameborder="0" allowfullscreen>
-  </iframe>
+<div style="display: flex; align-items: center; gap: 50px; margin: 40px 0;">
+
+  <img src="./images/carte.png" 
+       style="width:350px; border-radius:10px;">
+
+  <div>
+    <h2 style="margin-top:0;">
+      Cinq leviers d’actions pour donner leur place aux cartes
+    </h2>
+
+    <p>
+      À travers des publications régulières, un podcast et une grande journée annuelle,
+      la République des cartes entend rendre visible le rôle essentiel de la cartographie
+      pour comprendre, décider et agir ensemble.
+    </p>
+
+    <ul>
+      <li>une journée nationale de la carte</li>
+      <li>une bannière commune pour rassembler</li>
+      <li>un atelier et une expo clés en main pour faire vivre l’initiative partout</li>
+      <li>une série du podcast Sismique</li>
+      <li>des publications pour nourrir le débat</li>
+    </ul>
+  </div>
+
 </div>
-
 # Le Jour de la Carte : chaque année, une journée pour révéler le pouvoir des cartes
 Le 4 février 2026 s'est tenue la première édition du Jour de la carte, une mobilisation festive inédite autour de la carte et des nouvelles représentations du monde. 
 
