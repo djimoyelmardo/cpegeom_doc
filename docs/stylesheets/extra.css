@@ -1,0 +1,10 @@
+.wy-nav-content {
+    background-image: url("../images/fond_carte.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.wy-nav-content-wrap {
+    background: rgba(255,255,255,0.9);
+}
