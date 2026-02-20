@@ -51,7 +51,7 @@ Cela constitue un atout majeur pour disposer de données exploitables en géomat
 
     <!-- I-SEA -->
   <div style="background:white;color:#003366;width:260px;padding:25px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
-    <img src="{{ config.site_url }}images/logo_isea.jpg" style="height:60px; margin-bottom:15px;">
+    <img src="images/logo_isea.jpg" style="height:60px; margin-bottom:15px;">
     <p><strong>I-SEA</strong><br>
     Données sur les fréquentations nautiques  et les orthophotographies.
     </p>
@@ -59,7 +59,7 @@ Cela constitue un atout majeur pour disposer de données exploitables en géomat
 
    <!-- Europe Vue Du Ciel -->
   <div style="background:white;color:#003366;width:260px;padding:25px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
-    <img src="{{ config.site_url }}images/logo_europe.png" style="height:60px; margin-bottom:15px;">
+    <img src="images/logo_europe.png" style="height:60px; margin-bottom:15px;">
     <p><strong>Europe Vue Due Ciel</strong><br>
     Acquisition des orthophotos pour le compte du PNMBA
     </p>
