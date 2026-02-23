@@ -2,3 +2,5 @@ site_name :  Site de documentation CPGEOM
 use_directory_urls: false
 theme : 
   name : readthedocs
+extra_css:
+  - stylesheets/extra.css

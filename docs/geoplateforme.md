@@ -28,7 +28,6 @@ La carte n'est pas qu'un outil : c'est une invitation à voir le monde autrement
       <li>des publications pour nourrir le débat</li>
     </ul>
   </div>
-
 </div>
 # Le Jour de la Carte : chaque année, une journée pour révéler le pouvoir des cartes
 Le 4 février 2026 s'est tenue la première édition du Jour de la carte, une mobilisation festive inédite autour de la carte et des nouvelles représentations du monde. 
