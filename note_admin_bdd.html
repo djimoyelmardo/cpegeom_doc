@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Administration BDD - Site de documentation CPGEOM</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="stylesheets/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Administration BDD";
+        var mkdocs_page_input_path = "note_admin_bdd.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Site de documentation CPGEOM
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Accueil de mon site</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="gdal_ogr.html">Gdal ogr</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="geoplateforme.html">La République des cartes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="interoperabilite.html">Interoprabilité</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Administration BDD</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="sources.html">Sources</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Site de documentation CPGEOM</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Administration BDD</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="administration-bdd">Administration BDD</h1>
+<h1 id="fiche-administrateur-postgresql-postgis-sig-version-complete-structuree">🗄️ Fiche Administrateur PostgreSQL / PostGIS (SIG) – Version complète structurée</h1>
+<p>Cette fiche présente les <strong>étapes logiques d’administration PostgreSQL/PostGIS</strong> :
+installation → configuration → gestion → stockage → import SIG → sauvegarde → automatisation → monitoring.</p>
+<hr />
+<h1 id="1-verification-du-serveur-postgresql">1. Vérification du serveur PostgreSQL</h1>
+<p>Vérifier l’état du service :</p>
+<pre><code class="language-bash">sudo systemctl status postgresql.service
+</code></pre>
+<p>Démarrer le service :</p>
+<pre><code class="language-bash">sudo systemctl start postgresql.service
+</code></pre>
+<p>Arrêter :</p>
+<pre><code class="language-bash">sudo systemctl stop postgresql.service
+</code></pre>
+<p>Redémarrer :</p>
+<pre><code class="language-bash">sudo systemctl restart postgresql.service
+</code></pre>
+<p>Activer au démarrage :</p>
+<pre><code class="language-bash">sudo systemctl enable postgresql.service
+</code></pre>
+<p><em>N.B. Si le fichier de configuration postgresql.conf a été modifié, faire </em><em>sudo systemctl stop postgresql.service</em><em> avant de faire </em><em>sudo systemctl start postgresql.service</em>**</p>
+<hr />
+<h1 id="2-connexion-a-postgresql">2. Connexion à PostgreSQL</h1>
+<p>Connexion locale :</p>
+<pre><code class="language-bash">psql -U postgres -d postgres
+</code></pre>
+<p>Connexion distante :</p>
+<pre><code class="language-bash">psql -h host -p port -U user -d database
+</code></pre>
+<p>Exemple :</p>
+<pre><code class="language-bash">psql -h 192.168.10.1 -p 15432 -U editeur -d mardochee
+</code></pre>
+<p>Quitter psql :</p>
+<pre><code class="language-sql">\q
+</code></pre>
+<hr />
+<h1 id="3-gestion-des-bases-de-donnees">3. Gestion des bases de données</h1>
+<p>Lister les bases :</p>
+<pre><code class="language-sql">\l
+</code></pre>
+<p>Créer une base :</p>
+<pre><code class="language-sql">CREATE DATABASE ma_base;
+</code></pre>
+<p>Se connecter à  ma base de donnée "mardochee" :</p>
+<pre><code class="language-sql">\c mardochee
+</code></pre>
+<p>ou</p>
+<pre><code class="language-sql">\connect mardochee
+</code></pre>
+<p>une fois connectée , lister toutes les tables dans le schema "qualite"</p>
+<pre><code class="language-sql">\dt qualite.*
+</code></pre>
+<p>lister les utilisateurs de la base de données :</p>
+<pre><code class="language-sql">\du
+</code></pre>
+<p>Supprimer une base :</p>
+<pre><code class="language-sql">DROP DATABASE ma_base;
+</code></pre>
+<hr />
+<h1 id="4-gestion-des-roles-et-utilisateurs">4. Gestion des rôles et utilisateurs</h1>
+<p>Créer un rôle</p>
+<pre><code class="language-sql">CREATE ROLE nom_utilisateur LOGIN;
+</code></pre>
+<p><em>Un rôle permet de gérer les utilisateurs et leurs permissions dans la base de données</em>
+Ses pouvoirs : 
+- contrôler qui peut se connecter
+- définir ce que la personne peut faire
+- appliquer une gestion de sécurité et des privilèges</p>
+<p>Exemple création d'un rôle "idgeo" :</p>
+<pre><code class="language-sql">-- Role: idgeo (ici idgeo c'est un groupe )
+-- DROP ROLE IF EXISTS idgeo;
+CREATE ROLE idgeo WITH
+    LOGIN -- se connecter à PostgreSQL, Sans LOGIN, ne peut pas ouvrir de session
+    NOSUPERUSER --pas es privilèges d'admin global, ne peut pas modifier toute la base ni accéder à toutes les données
+    INHERIT --hérite automatiquement des privilèges des rôles auxquels il appartient
+    CREATEDB --peut créer de nouvelles bases de données
+    NOCREATEROLE -- Interdit au rôle de créer ou modifier d'autres rôles, donc ne peut donc pas gérer les utilisateurs
+    NOREPLICATION --ne peut pas être utilisé pour la réplication
+    NOBYPASSRLS --ne peut pas contourner les politiques de sécurité au niveau des lignes (Row Level Security)
+;
+</code></pre>
+<p>Créer un utilisateur :</p>
+<pre><code class="language-sql">CREATE USER user1 WITH PASSWORD 'password';
+</code></pre>
+<p>Donner les droits :</p>
+<pre><code class="language-sql">GRANT ALL PRIVILEGES ON DATABASE ma_base TO user1;
+</code></pre>
+<p>Revoquer les droits :</p>
+<pre><code class="language-sql">REVOKE  PRIVILEGES ON DATABASE ma_base TO user2;
+</code></pre>
+<p>Modifier mot de passe :</p>
+<pre><code class="language-sql">ALTER USER user1 WITH PASSWORD 'new_password';
+</code></pre>
+<p>Supprimer utilisateur :</p>
+<pre><code class="language-sql">DROP USER user1;
+</code></pre>
+<p>Lister les rôles :</p>
+<pre><code class="language-sql">\du
+</code></pre>
+<hr />
+<h1 id="5-installation-de-postgis">5. Installation de PostGIS</h1>
+<p>Activer PostGIS :</p>
+<pre><code class="language-sql">CREATE EXTENSION postgis;
+</code></pre>
+<p>Vérifier la version :</p>
+<pre><code class="language-sql">SELECT PostGIS_version();
+</code></pre>
+<p>Lister les extensions :</p>
+<pre><code class="language-sql">\dx
+</code></pre>
+<hr />
+<h1 id="6-gestion-des-schemas">6. Gestion des schémas</h1>
+<p>Créer un schéma :</p>
+<pre><code class="language-sql">CREATE SCHEMA admin;
+</code></pre>
+<p>Lister les schémas :</p>
+<pre><code class="language-sql">\dn
+</code></pre>
+<p>Supprimer :</p>
+<pre><code class="language-sql">DROP SCHEMA admin CASCADE;
+</code></pre>
+<hr />
+<h1 id="7-creation-de-tables-geographiques">7. Création de tables géographiques</h1>
+<pre><code class="language-sql">CREATE TABLE communes (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(100),
+    geom geometry(MULTIPOLYGON,2154)
+);
+</code></pre>
+<hr />
+<h1 id="8-index-spatial">8. Index spatial</h1>
+<pre><code class="language-sql">CREATE INDEX communes_geom_idx
+ON communes
+USING GIST (geom);
+</code></pre>
+<hr />
+<h1 id="9-fonctions-postgis-essentielles">9. Fonctions PostGIS essentielles</h1>
+<pre><code>ST_Intersects()
+ST_Contains()
+ST_Distance()
+ST_Buffer()
+ST_Union()
+ST_Area()
+ST_Length()
+ST_Transform()
+</code></pre>
+<p>Exemple :</p>
+<pre><code class="language-sql">SELECT *
+FROM communes
+WHERE ST_Intersects(geom, autre_geom);
+</code></pre>
+<hr />
+<h1 id="10-transformation-de-projection">10. Transformation de projection</h1>
+<pre><code class="language-sql">SELECT ST_Transform(geom,2154)
+FROM table;
+</code></pre>
+<hr />
+<h1 id="11-tablespaces-postgresql">11. Tablespaces PostgreSQL</h1>
+<p>Créer le dossier du tablespace :</p>
+<pre><code class="language-bash">sudo mkdir -p /srv/tablespace/
+</code></pre>
+<p>Donner les droits :</p>
+<pre><code class="language-bash">sudo chown postgres:postgres /srv/tablespace/
+</code></pre>
+<p>Créer le tablespace :</p>
+<pre><code class="language-sql">CREATE TABLESPACE mine
+LOCATION '/srv/tablespace';
+</code></pre>
+<p>Lister les tablespaces :</p>
+<pre><code class="language-sql">\db
+</code></pre>
+<hr />
+<h1 id="12-verification-du-stockage-physique">12. Vérification du stockage physique</h1>
+<p>Lister le contenu :</p>
+<pre><code class="language-bash">sudo ls -la /srv/tablespace
+</code></pre>
+<p>Explorer la structure interne :</p>
+<pre><code class="language-bash">sudo ls -la /srv/tablespace/PG_*
+</code></pre>
+<p>Voir les liens PostgreSQL :</p>
+<pre><code class="language-bash">ls -la /var/lib/postgresql/16/main/pg_tblspc
+</code></pre>
+<hr />
+<h1 id="13-import-de-donnees-sig">13. Import de données SIG</h1>
+<p>Importer un shapefile :</p>
+<pre><code class="language-bash">ogr2ogr -f &quot;PostgreSQL&quot; PG:&quot;dbname=ma_base user=postgres&quot; -nln admin.communes communes.shp
+</code></pre>
+<p>Importer avec reprojection :</p>
+<pre><code class="language-bash">ogr2ogr -f &quot;PostgreSQL&quot; PG:&quot;dbname=ma_base user=postgres&quot; -s_srs EPSG:4326 -t_srs EPSG:2154 communes.shp
+</code></pre>
+<p>Importer un département spécifique :</p>
+<pre><code class="language-bash">ogr2ogr -f &quot;PostgreSQL&quot; PG:&quot;dbname=hg user=postgres&quot; departement_31.shp -nln dept_31 -nlt PROMOTE_TO_MULTI -lco GEOMETRY_NAME=geom
+</code></pre>
+<hr />
+<h1 id="14-export-de-donnees">14. Export de données</h1>
+<pre><code class="language-bash">ogr2ogr communes.shp PG:&quot;dbname=ma_base user=postgres&quot; -nln admin.communes
+</code></pre>
+<hr />
+<h1 id="15-sauvegarde-postgresql">15. Sauvegarde PostgreSQL</h1>
+<p>Sauvegarde simple :</p>
+<pre><code class="language-bash">pg_dump ma_base &gt; sauvegarde.sql
+</code></pre>
+<p>Sauvegarde complète :</p>
+<pre><code class="language-bash">pg_dumpall &gt; all_db.sql
+</code></pre>
+<p>Sauvegarde avec options :</p>
+<pre><code class="language-bash">pg_dump -U postgres -p 5432 -d hg -f /mnt/d/admin_bd/hg_backup.sql
+</code></pre>
+<hr />
+<h1 id="16-restauration-dune-base">16. Restauration d'une base</h1>
+<p>Créer une base :</p>
+<pre><code class="language-bash">psql -U postgres -p 5432 -c &quot;CREATE DATABASE hg_restore;&quot;
+</code></pre>
+<p>Restaurer :</p>
+<pre><code class="language-bash">psql -U postgres -p 5432 -d hg_restore &lt; hg_backup.sql
+</code></pre>
+<hr />
+<h1 id="17-script-bash-de-sauvegarde-automatisee">17. Script bash de sauvegarde automatisée</h1>
+<p>Créer le script :</p>
+<pre><code class="language-bash">nano script_sauv_bdd.sh
+</code></pre>
+<p>Script :</p>
+<pre><code class="language-bash">#!/bin/bash
+
+DATE=$(date +%Y-%m-%d_%H-%M)
+
+pg_dump -U postgres -p 5432 -d hg -f /mnt/d/admin_bd/hg_backup_$DATE.sql
+
+psql -U postgres -c &quot;DROP DATABASE IF EXISTS hg_restore;&quot;
+psql -U postgres -c &quot;CREATE DATABASE hg_restore;&quot;
+
+psql -U postgres -p 5432 -d hg_restore &lt; /mnt/d/admin_bd/hg_backup_$DATE.sql
+</code></pre>
+<p>Rendre exécutable :</p>
+<pre><code class="language-bash">chmod +x script_sauv_bdd.sh
+</code></pre>
+<p>Tester :</p>
+<pre><code class="language-bash">./script_sauv_bdd.sh
+</code></pre>
+<hr />
+<h1 id="18-automatisation-avec-cron">18. Automatisation avec CRON</h1>
+<p>Modifier la crontab :</p>
+<pre><code class="language-bash">crontab -e
+</code></pre>
+<p>Ajouter :</p>
+<pre><code class="language-bash">20 3 * * * /home/ofbpnmba/script_sauv_bdd.sh &gt;&gt; /home/ofbpnmba/backup.log 2&gt;&amp;1
+</code></pre>
+<p>Vérifier :</p>
+<pre><code class="language-bash">crontab -l
+</code></pre>
+<hr />
+<h1 id="19-monitoring-postgresql">19. Monitoring PostgreSQL</h1>
+<p>Tester si PostgreSQL répond :</p>
+<pre><code class="language-bash">pg_isready
+</code></pre>
+<p>Lister les clusters :</p>
+<pre><code class="language-bash">pg_lsclusters
+</code></pre>
+<p>Voir les processus :</p>
+<pre><code class="language-bash">ps -aux | grep postgres
+</code></pre>
+<p>Surveiller les ressources :</p>
+<pre><code class="language-bash">htop
+</code></pre>
+<p>Connexions actives :</p>
+<pre><code class="language-sql">SELECT * FROM pg_stat_activity;
+</code></pre>
+<hr />
+<h1 id="20-logs-postgresql">20. Logs PostgreSQL</h1>
+<p>Consulter les logs :</p>
+<pre><code class="language-bash">sudo less /var/log/postgresql/postgresql-16-main.log
+</code></pre>
+<p>Suivre en temps réel :</p>
+<pre><code class="language-bash">tail -f /var/log/postgresql/postgresql-16-main.log
+</code></pre>
+<hr />
+<h1 id="21-export-de-lhistorique-linux">21. Export de l'historique Linux</h1>
+<p>Afficher l’historique avec date :</p>
+<pre><code class="language-bash">HISTTIMEFORMAT=&quot;%F %T &quot; history
+</code></pre>
+<p>Exporter dans un fichier CSV :</p>
+<pre><code class="language-bash">HISTTIMEFORMAT=&quot;%F;%T &quot; history | grep &quot;$(date +%F)&quot; &gt; history_2026.csv
+</code></pre>
+<hr />
+<h1 id="22-architecture-sig-typique">22. Architecture SIG typique</h1>
+<pre><code>Linux
+ ├─ PostgreSQL
+ │   └─ PostGIS
+ ├─ GDAL / OGR
+ ├─ QGIS
+ └─ WebSIG
+     ├─ GeoServer
+     ├─ Leaflet
+     └─ OpenLayers
+</code></pre>
+<hr />
+<h1 id="23-bonnes-pratiques-dba-sig">23. Bonnes pratiques DBA SIG</h1>
+<p>✔ utiliser des tablespaces pour les gros volumes<br />
+✔ créer des index spatiaux<br />
+✔ vérifier les projections EPSG<br />
+✔ sauvegarder régulièrement la base<br />
+✔ automatiser les sauvegardes avec cron<br />
+✔ surveiller les logs PostgreSQL</p>
+<h1 id="connexions-distantes-avec-foreign-data-wrappers-fdw">🔗 Connexions distantes avec Foreign Data Wrappers (FDW)</h1>
+<h2 id="1-principe">1. Principe</h2>
+<p>Les <strong>Foreign Data Wrappers (FDW)</strong> permettent à PostgreSQL d'accéder à des <strong>données externes</strong> comme si elles étaient des <strong>tables locales</strong>.</p>
+<p>Cela permet de :</p>
+<ul>
+<li>interroger des <strong>bases PostgreSQL distantes</strong></li>
+<li>accéder à des <strong>services web (WFS)</strong></li>
+<li>lire des <strong>fichiers externes</strong></li>
+<li>accéder à d'autres bases de données (Oracle, MySQL, etc.)</li>
+</ul>
+<p>Les données externes apparaissent sous forme de <strong>foreign tables</strong>.</p>
+<hr />
+<h1 id="2-avantages-des-fdw">2. Avantages des FDW</h1>
+<p>✔ accès transparent aux données distantes<br />
+✔ possibilité de <strong>requêtes SQL directes</strong><br />
+✔ intégration avec <strong>PostGIS</strong><br />
+✔ évite la duplication des données  </p>
+<p>Exemple :</p>
+<pre><code class="language-sql">SELECT *
+FROM table_distante
+WHERE id = 10;
+</code></pre>
+<hr />
+<h1 id="3-types-de-sources-supportees">3. Types de sources supportées</h1>
+<p>Le FDW permet d'accéder à différents types de sources :</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PostgreSQL</td>
+<td>lecture / écriture</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>lecture / écriture</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>lecture / écriture</td>
+</tr>
+<tr>
+<td>CSV</td>
+<td>lecture</td>
+</tr>
+<tr>
+<td>ODBC / JDBC</td>
+<td>dépend du driver</td>
+</tr>
+<tr>
+<td>NoSQL (CouchDB, Redis)</td>
+<td>dépend du driver</td>
+</tr>
+<tr>
+<td>WFS / fichiers géographiques</td>
+<td>lecture</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="4-activation-des-extensions-fdw">4. Activation des extensions FDW</h1>
+<p>Activer le FDW PostgreSQL :</p>
+<pre><code class="language-sql">CREATE EXTENSION postgres_fdw;
+</code></pre>
+<p>Activer le FDW GDAL :</p>
+<pre><code class="language-sql">CREATE EXTENSION ogr_fdw;
+</code></pre>
+<p>Activer le FDW FILE GDAL :</p>
+<pre><code class="language-sql">CREATE EXTENSION file_fdw;
+</code></pre>
+<hr />
+<h1 id="5-connexion-a-une-base-postgresql-distante">5. Connexion à une base PostgreSQL distante</h1>
+<h2 id="creation-du-serveur-distant">Création du serveur distant</h2>
+<pre><code class="language-sql">CREATE SERVER foreign_bd
+FOREIGN DATA WRAPPER postgres_fdw
+OPTIONS (
+    host 'localhost',
+    port '5434',
+    dbname 'bd_test_postgis'
+);
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host</td>
+<td>adresse du serveur distant</td>
+</tr>
+<tr>
+<td>port</td>
+<td>port PostgreSQL</td>
+</tr>
+<tr>
+<td>dbname</td>
+<td>base distante</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="6-association-des-utilisateurs">6. Association des utilisateurs</h1>
+<p>Associer un utilisateur local à un utilisateur distant.</p>
+<pre><code class="language-sql">CREATE USER MAPPING FOR postgres
+SERVER foreign_bd
+OPTIONS (
+    user 'postgres',
+    password 'postgres'
+);
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>élément</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>postgres</td>
+<td>utilisateur local</td>
+</tr>
+<tr>
+<td>user</td>
+<td>utilisateur distant</td>
+</tr>
+<tr>
+<td>password</td>
+<td>mot de passe distant</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="7-creation-dune-table-distante">7. Création d'une table distante</h1>
+<p>Une <strong>foreign table</strong> représente une table distante.</p>
+<pre><code class="language-sql">CREATE FOREIGN TABLE foreign_parkings (
+    osm_id integer NOT NULL,
+    date_heure timestamp without time zone,
+    nom character varying,
+    type_obj character varying,
+    xcoord double precision,
+    ycoord double precision,
+    geom geometry(Point,2154)
+)
+SERVER foreign_bd
+OPTIONS (
+    schema_name 'public',
+    table_name 'parkings'
+);
+</code></pre>
+<p>Interroger la table distante :</p>
+<pre><code class="language-sql">SELECT *
+FROM foreign_parkings
+LIMIT 10;
+</code></pre>
+<hr />
+<h1 id="8-acces-a-un-service-wfs-avec-ogr_fdw">8. Accès à un service WFS avec ogr_fdw</h1>
+<p>Créer un serveur WFS :</p>
+<pre><code class="language-sql">CREATE SERVER fdw_ogr_inpn_metropole
+FOREIGN DATA WRAPPER ogr_fdw
+OPTIONS (
+    datasource 'WFS:http://ws.carmencarto.fr/WFS/119/fxx_inpn?',
+    format 'WFS'
+);
+</code></pre>
+<hr />
+<h1 id="9-creation-du-schema-dimport">9. Création du schéma d'import</h1>
+<pre><code class="language-sql">CREATE SCHEMA IF NOT EXISTS inpn_metropole;
+</code></pre>
+<hr />
+<h1 id="10-import-des-tables-du-service-wfs">10. Import des tables du service WFS</h1>
+<pre><code class="language-sql">IMPORT FOREIGN SCHEMA ogr_all
+FROM SERVER fdw_ogr_inpn_metropole
+INTO inpn_metropole
+OPTIONS (
+    launder_table_names 'true',
+    launder_column_names 'true'
+);
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>launder_table_names</td>
+<td>nettoie les noms de tables</td>
+</tr>
+<tr>
+<td>launder_column_names</td>
+<td>nettoie les noms de colonnes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="11-verification-des-tables-importees">11. Vérification des tables importées</h1>
+<pre><code class="language-sql">SELECT foreign_table_schema, foreign_table_name
+FROM information_schema.foreign_tables
+WHERE foreign_table_schema = 'inpn_metropole'
+ORDER BY foreign_table_schema, foreign_table_name;
+</code></pre>
+<hr />
+<h1 id="12-exemple-dinterrogation">12. Exemple d'interrogation</h1>
+<pre><code class="language-sql">SELECT *
+FROM inpn_metropole.zico
+LIMIT 3;
+</code></pre>
+<hr />
+<h1 id="13-architecture-fdw">13. Architecture FDW</h1>
+<pre><code>PostgreSQL local
+        │
+        │
+        ├── postgres_fdw
+        │       │
+        │       └── PostgreSQL distant
+        │
+        └── ogr_fdw
+                │
+                └── WFS / fichiers géographiques
+</code></pre>
+<hr />
+<h1 id="14-bonnes-pratiques">14. Bonnes pratiques</h1>
+<p>✔ utiliser FDW pour éviter la duplication des données<br />
+✔ limiter les requêtes lourdes sur les serveurs distants<br />
+✔ créer des vues locales pour simplifier l'accès<br />
+✔ surveiller les performances réseau</p>
+<hr />
+<h1 id="15-exemple-dutilisation-sig">15. Exemple d'utilisation SIG</h1>
+<pre><code>Serveur SIG
+│
+├── Base principale
+│
+├── FDW vers base cadastre
+│
+├── FDW vers base biodiversité
+│
+└── FDW vers service WFS INPN
+</code></pre>
+<p>Les données peuvent être utilisées directement dans <strong>QGIS</strong>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="interoperabilite.html" class="btn btn-neutral float-left" title="Interoprabilité"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="sources.html" class="btn btn-neutral float-right" title="Sources">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="interoperabilite.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="sources.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
